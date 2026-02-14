@@ -9,8 +9,30 @@ body {
   line-height: 1.6;
 }
 
-/* Make any header/hero never behave like a stuck/fixed overlay */
-header, .hero {
+/* Replace Bootstrap primary blue with a more attractive gradient */
+.bg-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%) !important;
+}
+
+/* Make hero/header sections compact (no full-screen block) */
+header.bg-primary,
+section.hero {
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
+}
+
+/* Reduce huge display headings used in hero sections */
+header .display-4,
+header .display-5,
+section.hero .display-4,
+section.hero .display-5 {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  line-height: 1.1 !important;
+}
+
+/* Ensure nothing becomes a fixed overlay */
+header,
+section.hero {
   position: static !important;
   inset: auto !important;
   height: auto !important;
@@ -18,16 +40,8 @@ header, .hero {
   transform: none !important;
 }
 
-/* Replace Bootstrap primary blue with a more attractive gradient */
-.bg-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%) !important;
-}
-
-/* Keep readable text on gradient */
+/* Readability tweaks */
 .text-white-50 { color: rgba(255,255,255,.75) !important; }
-
-.feature-box { font-size: 120px; opacity: 0.9; }
-.feature-icon { font-size: 48px; }
 
 .card {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
