@@ -1,6 +1,7 @@
 :root {
-  --primary-color: #0d6efd;
-  --dark-color: #212529;
+  --primary: #7c3aed;      /* violet */
+  --primary-2: #06b6d4;    /* cyan */
+  --dark: #0f172a;
 }
 
 body {
@@ -8,19 +9,25 @@ body {
   line-height: 1.6;
 }
 
-/* Prevent any accidental full-screen fixed overlays */
-.hero {
-  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+/* Make any header/hero never behave like a stuck/fixed overlay */
+header, .hero {
+  position: static !important;
+  inset: auto !important;
+  height: auto !important;
+  min-height: unset !important;
+  transform: none !important;
 }
 
-.feature-box {
-  font-size: 120px;
-  opacity: 0.9;
+/* Replace Bootstrap primary blue with a more attractive gradient */
+.bg-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%) !important;
 }
 
-.feature-icon {
-  font-size: 48px;
-}
+/* Keep readable text on gradient */
+.text-white-50 { color: rgba(255,255,255,.75) !important; }
+
+.feature-box { font-size: 120px; opacity: 0.9; }
+.feature-icon { font-size: 48px; }
 
 .card {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -33,22 +40,18 @@ body {
 }
 
 .btn-primary {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #111827 !important;
+  border-color: #111827 !important;
 }
 
 .btn-primary:hover {
-  background-color: #0a58ca;
-  border-color: #0a58ca;
+  background-color: #0b1220 !important;
+  border-color: #0b1220 !important;
 }
 
-.navbar {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+.navbar { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
-table {
-  margin-top: 20px;
-}
+table { margin-top: 20px; }
 
 .form-section {
   background-color: #f8f9fa;
@@ -57,6 +60,4 @@ table {
   margin-top: 30px;
 }
 
-h2, h3 {
-  color: #0d6efd;
-}
+h2, h3 { color: #111827; }
