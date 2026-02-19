@@ -1,15 +1,49 @@
+/* === Alpha Classes theme (desktop + mobile fix) === */
+
+/* New colors: purple + teal (blue hata diya) */
 :root {
-  --primary: #7c3aed;
-  --primary-2: #06b6d4;
+  --primary: #4f46e5;    /* purple */
+  --primary-2: #06b6d4;  /* teal */
+  --dark: #0f172a;
 }
 
-/* Emergency reset: remove any full-screen/fixed overlay effects */
+/* Basic reset */
 html, body {
-  height: auto !important;
-  overflow: auto !important;
+  height: auto;
+  overflow: auto;
 }
 
-header, section.hero {
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar + hero background */
+.bg-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%) !important;
+}
+
+/* Hero / header ko chhota rakho – desktop pe full screen nahi banega */
+header.bg-primary,
+section.hero {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+/* Hero ke bade-bade headings ko normal size pe lao */
+header .display-4,
+header .display-5,
+header .display-6,
+section.hero .display-4,
+section.hero .display-5,
+section.hero .display-6 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
+  line-height: 1.1 !important;
+}
+
+/* Pura hero fixed/stuck na ho – normal block jaisa behave kare */
+header,
+section.hero {
   position: relative !important;
   height: auto !important;
   min-height: 0 !important;
@@ -17,29 +51,16 @@ header, section.hero {
   overflow: visible !important;
 }
 
-/* Ensure containers don't accidentally become viewport-locked */
-.container, .row, .col, [class*="col-"] {
-  position: static;
+/* Cards, buttons, forms, etc. */
+.card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
-.bg-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%) !important;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
 }
-
-header.bg-primary, section.hero {
-  padding-top: 1rem !important;
-  padding-bottom: 1rem !important;
-}
-
-header .display-4, header .display-5, header .display-6,
-section.hero .display-4, section.hero .display-5, section.hero .display-6 {
-  font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
-  line-height: 1.1 !important;
-}
-
-.navbar { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-
-.card { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 
 .btn-primary {
   background-color: #111827 !important;
@@ -49,4 +70,24 @@ section.hero .display-4, section.hero .display-5, section.hero .display-6 {
 .btn-primary:hover {
   background-color: #0b1220 !important;
   border-color: #0b1220 !important;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+table {
+  margin-top: 20px;
+}
+
+.form-section {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+/* Body sections ke headings (hero ke nahi) */
+h2, h3 {
+  color: #111827;
 }
